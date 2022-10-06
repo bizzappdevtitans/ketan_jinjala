@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="student_detail_list_view" model="ir.ui.view">
+        <field name="name">student.detail.tree</field>
+        <field name="model">student.detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="image" widget="image"/>
+                <field name="serial_number"/>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="address"/>
+                <field name="weight"/>
+                <field name="dob"/>
+                <field name="gender"/>                
+                <field name="term_end_date" widget="remaining_days"/>
+                <field name="priority" widget="priority"/>
+                <field name="principal_id" widget="many2one_avatar_employee"/>
+                <field name="teacher_ids" widget="many2many_tags"/>                
+                <field name="total"/>
+                <field name="total_female_count"/>
+                <field name="total_male_count"/>
+            </tree>
+        </field>               
+    </record>
+
+    <record id="student_detail_form_view" model="ir.ui.view">
+        <field name="name">student.detail.form</field>            
+        <field name="model">student.detail</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="button_in_progress" string="In Progress" type="object"/>
+                    <button name="open_update_wizard" string="Update Record" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="image" widget="image"/>
+                            <field name="serial_number" readonly="1"/>
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="weight"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                            <field name="gender" placeholder="Select your Gender" />
+                        </group>
+                        <group>
+                            <field name="term_end_date" widget="remaining_days"/>
+                            <field name="priority" widget="priority"/>  
+                            <field name="principal_id" widget="many2one_avatar_employee"/>
+                            <field name="teacher_ids"  widget="many2many_tags"/>
+                            <field name="maths_mark"/>
+                            <field name="physics_mark"/>
+                            <field name="chemistry_mark"/>
+                            <field name="total"/>
+                            <field name="total_female_count"/>
+                            <field name="total_male_count"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+      
+    <record id="student_detail_search_view" model="ir.ui.view">
+        <field name="name">student.detail.search</field>
+        <field name="model">student.detail</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="address"/>
+                <field name="weight"/>
+                <filter string="Male" name="male" domain="[('gender','=' ,'male')]"/>
+                <filter string="dob" name="dob" context="{'group_by':'dob'}"/>
+            </search>
+        </field>               
+    </record> 
+
+    <record id="action_student_detail" model="ir.actions.act_window">
+        <field name="name">Student Detail</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">student.detail</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="student_sever_action" model="ir.actions.server">
+        <field name="name">Create Student Name</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <!-- <field name="binding_model_id" ref="purchase.model_purchase_order"/> -->
+        <!-- <field name='groups_id' eval="[(4, ref('account.group_account_invoice'))]"/> -->
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.name_get()
+        </field>
+    </record>
+
+</odoo>

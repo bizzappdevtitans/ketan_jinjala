@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+    <record id="school_library_detail_list_view" model="ir.ui.view">
+        <field name="name">School.library.detail.tree</field>
+        <field name="model">school.library.detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="librarian_name"/>
+                <field name="librarian_age"/>
+                <field name="librarian_address"/>
+                <field name="librarian_weight"/>
+                <field name="librarian_dob"/>
+            </tree>
+        </field>               
+    </record>
+
+    <record id="School_library_detail_form_view" model="ir.ui.view">
+        <field name="name">School.library.detail.form</field>            
+        <field name="model">school.library.detail</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="librarian_name"/>
+                        <field name="librarian_age"/>
+                        <field name="librarian_address"/>
+                        <field name="librarian_weight"/>
+                        <field name="librarian_dob"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>   
+    <record id="action_school_library_detail" model="ir.actions.act_window">
+        <field name="name">School_Library Detail</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.library.detail</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
+
+
+
+
+
+
+
+  
