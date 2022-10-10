@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>   
+    <record id="class_detail_list_view" model="ir.ui.view">
+        <field name="name">class.detail.tree</field>
+        <field name="model">class.detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="class_std"/>       
+                <field name="class_location"/>         
+                <field name="class_size"/>
+                <field name="student_ids" widget="list_activity"/>
+                <field name="partner_ids"  widget="many2many_tags_avatar" placeholder="Select attendees..."/>
+            </tree>
+        </field>               
+    </record>
+
+    <record id="class_detail_form_view" model="ir.ui.view">
+        <field name="name">class.detail.form</field>            
+        <field name="model">class.detail</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_std"/>       
+                        <field name="class_location"/>         
+                        <field name="class_size"/>
+                        <field name="student_ids" widget="list_activity"/>
+                        <field name="partner_ids"  widget="many2many_tags_avatar" placeholder="Select attendees..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>   
+    <record id="action_class_detail" model="ir.actions.act_window">
+        <field name="name">class Detail</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">class.detail</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- <record id="class_detail_cron_view" model="ir.cron">
+        <field name="name">class.detail.tree</field>
+        <field name="model">class.detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="class_std"/>       
+                <field name="class_location"/>         
+                <field name="class_size"/>
+                <field name="student_ids" widget="list_activity"/>
+                <field name="partner_ids"  widget="many2many_tags_avatar" placeholder="Select attendees..."/>
+            </tree>
+        </field>
+    </record> --> 
+</odoo>
+
+    
+
+
+
+
+
+
+
+
+

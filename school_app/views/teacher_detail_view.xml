@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>   
+    <record id="teacher_detail_list_view" model="ir.ui.view">
+        <field name="name">teacher.detail.tree</field>
+        <field name="model">teacher.detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="serial_number"/>
+                <field name="t_name"/>
+                <field name="subject"/>
+                <field name="age"/>
+                <field name="dob"/>
+                <field name="active"/>
+                <field name="notes"/>
+                <field name="file"/>
+                <field name="signature"/>
+                <field name="teacher_mobile_No"/>
+                
+            </tree>
+        </field>               
+    </record>
+
+    <record id="teacher_detail_form_view" model="ir.ui.view">
+        <field name="name">teacher.detail.form</field>            
+        <field name="model">teacher.detail</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="serial_number" readonly="1"/>
+                        <field name="t_name"/>
+                        <field name="subject"/>
+                        <field name="age"/>
+                        <field name="dob"/>
+                        <field name="active"/>
+                        <field name="notes"/>
+                        <field name="file"/>
+                        <field name="signature"/>
+                        <field name="principale_detail"/>
+                        <field name="teacher_mobile_No"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>   
+
+    <record id="teacher_detail_search_view" model="ir.ui.view">
+        <field name="name">teacher.detail.search</field>
+        <field name="model">teacher.detail</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="t_name"/>
+                <field name="subject"/>
+                <field name="age"/>
+            </search>
+        </field>               
+    </record>
+
+      
+    <record id="action_teacher_detail" model="ir.actions.act_window">
+        <field name="name">Teacher Detail</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">teacher.detail</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="action_teacher_detail_smart_button" model="ir.ui.view">
+        <field name="name">sale.order.form.sale.stock</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_invoice']" position="before">
+                <button type="object"
+                    name="action_view_delivery"
+                    class="oe_stat_button"
+                    icon="fa-youtube"
+                    attrs="{'invisible': [('delivery_count', '=', 0)]}" groups="stock.group_stock_user">
+                    <field name="delivery_count" widget="statinfo" string="Delivery"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+

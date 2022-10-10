@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Top menu item -->
+    <menuitem id="school_app_root_menu" 
+        name="School Management"/>
+
+    <menuitem 
+        id="student_menu" 
+        name="Student Detail" 
+        parent="school_app_root_menu"
+        action="action_student_detail"/>
+
+    <menuitem id="Emp_root_menu" 
+        name="Emp"
+        parent = "school_app_root_menu"/>
+
+
+    <menuitem 
+        id="teacher_menu" 
+        name="Teacher Detail" 
+        parent="school_app_root_menu"
+        action="action_teacher_detail"/>
+     
+    <menuitem 
+        id="principale_menu" 
+        name="Principale Detail" 
+        parent="school_app_root_menu"
+        action="action_principale_detail"/>
+
+    <menuitem 
+        id="school_library_menu" 
+        name="School Library Detail" 
+        parent="school_app_root_menu"
+        action="action_school_library_detail"/>
+
+    <menuitem 
+        id="class_menu" 
+        name="Class Detail" 
+        parent="school_app_root_menu"
+        action="action_class_detail"/>
+
+</odoo>
