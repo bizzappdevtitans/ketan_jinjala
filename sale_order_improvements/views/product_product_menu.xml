@@ -2,4 +2,8 @@
 <odoo>
     <menuitem id="sale_management_root_menu" 
         name="Sale Order Management"/>
+<<<<<<< Updated upstream
 </odoo> 
+=======
+</odoo> 
+>>>>>>> Stashed changes

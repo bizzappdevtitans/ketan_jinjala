@@ -5,6 +5,7 @@
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_normal_form_view"/>
         <field name="arch" type="xml">
+<<<<<<< Updated upstream
             <xpath expr="//div[@name='options']" position="inside">
                 <field name="is_allowed" />
                 <label for="is_allowed"/>
@@ -36,6 +37,12 @@
                     domain="[('is_allowed', '=', True), ('sale_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]"
                     widget="product_configurator"
                 />
+=======
+            <xpath expr="//field[@name='purchase_ok']" position="after">
+            <xpath expr="//div[@name='purchase_ok']" position="inside">
+                <label for="is_allowed"/>
+                <field name="is_allowed" />
+>>>>>>> Stashed changes
             </xpath>
         </field>
     </record>
