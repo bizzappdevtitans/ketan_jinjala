@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="sale_management_root_menu" 
+        name="Sale Order Management"/>
+<<<<<<< Updated upstream
+</odoo> 
+=======
+</odoo> 
+>>>>>>> Stashed changes
